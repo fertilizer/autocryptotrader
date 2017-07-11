@@ -2,8 +2,13 @@ import json
 import os.path
 import time
 
+# todo: pass variables as commandline arguments? look into airflow
+# todo: find 'fee' percentage. 0.3%?
+# todo: implement GDAX API
+# todo: implement tkinter interface
+
 product = input('enter product\n')
-confirm = input('making transactions for {}'.format(product))
+confirm = input('making transactions for {}? (y or n)\n'.format(product))
 if confirm == 'y' or confirm == 'yes':
 
     FILE_NAME = '{}_transactions_{}.log'.format(product, time.strftime("%d-%m-%Y"))
@@ -21,16 +26,16 @@ if confirm == 'y' or confirm == 'yes':
             f = open(FILE_NAME, 'r')
             transactions = json.loads(f.read())
 
-        size = input('enter size of product bought:\n')
+        size = input('enter size:\n')
 
         price = input('enter price:\n')
 
         fee = input('enter fee:\n')
 
-        confirm = input('is this correct?\n product: {}\n size: {}\n price: {}\n fee: {}\n'.format(product, size, price, fee))
+        confirm = input('is this correct? (y or n)\n size: {}\n price: {}\n fee: {}\n'.format(size, price, fee))
         
         if confirm == 'y' or confirm == 'yes':
-            gpu_dict = {'product': product, 'size': size, 'price': price, 'fee': fee}
+            gpu_dict = {'size': size, 'price': price, 'fee': fee}
             transactions.append(gpu_dict)
             f = open(FILE_NAME, 'w')
             print(json.dumps(transactions))
