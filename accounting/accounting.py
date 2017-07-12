@@ -9,7 +9,7 @@ btc_usd_val = round(float(r.json()['price']), 3)
 r = requests.get('https://api.gdax.com/products/eth-usd/ticker')
 eth_usd_val = round(float(r.json()['price']), 3)
 
-r = requests.get('https://api.gdax.com/products/eth-btc/ticker')  # trading note- as btc increases and eth decreases, the difference between the two gets greater
+r = requests.get('https://api.gdax.com/products/eth-btc/ticker')
 eth_btc_val = round(float(r.json()['price']), 3)
 
 print('1 BTC: $'+str(btc_usd_val))
