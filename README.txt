@@ -24,3 +24,13 @@ GITHUB Best Practices:
 7. Wait for a second party to merge your changes after submitting a pull request
    (never merge your own changes)
 8. Get started on your next task!
+
+Setup:
+- create auth.cfg in trading folder. use the following format:
+{
+"key": "",
+"b64secret": "",
+"passphrase": ""
+}
+
+- fill in the quoted with your GDAX api information
